@@ -67,7 +67,7 @@ function ListaProductos() {
 
     const productosMostrados = []
     for (let i = 0; i < productosVisibles.length; i++) {
-        productosMostrados.push(<ProductoCard nombre={productos[i].nombre} imagen={productos[i].imagen} />)
+        productosMostrados.push(<ProductoCard nombre={productosVisibles[i].nombre} imagen={productosVisibles[i].imagen} />)
     }
 
     const paginaSiguiente = (e) => {
