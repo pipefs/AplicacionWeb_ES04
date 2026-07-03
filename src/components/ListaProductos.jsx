@@ -6,6 +6,7 @@ function ListaProductos() {
 
     // "base de datos" de los productos.
     // Aqui se agregaran para que sea posible implementar la "pagination".
+        
     let productos = [
         {
             nombre: "Samsung J2 Prime",
@@ -81,6 +82,7 @@ function ListaProductos() {
         if (paginaActual > 0) {
             setPaginaActual(paginaActual - 1)
         }
+
     }
 
     return (
