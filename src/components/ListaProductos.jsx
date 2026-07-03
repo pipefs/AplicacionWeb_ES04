@@ -8,83 +8,48 @@ function ListaProductos() {
     // Aqui se agregaran para que sea posible implementar la "pagination".
     let productos = [
         {
-            nombre: "samsung j2 prime",
-            imagen: "url o direccion",
+            nombre: "Samsung J2 Prime",
+            imagen: "https://www.bhphotovideo.com/cdn-cgi/image/fit=scale-down,width=500,quality=95/https://www.bhphotovideo.com/images/images500x500/samsung_sm_g532m_16_gld_samaung_j2_prime_g532m_1520953541_1395830.jpg",
             descripcion: "blabla"
         },
         {
-            nombre: "samsung j2 prime",
-            imagen: "url o direccion",
+            nombre: "Samsung Galaxy A07",
+            imagen: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQXvDGtaJ-8Kl1gRbowFx-JlefzdXqnvLS0qUFSkb5nhynb5mvaOcPYkzQMqmvEssnTX8toSkZ-21dcU1_cY8Y_tIwJ0MShvfqaZyXCaIlGfwSNs5RQPrHqbAo",
             descripcion: "blabla"
         },
         {
-            nombre: "samsung j2 prime",
-            imagen: "url o direccion",
+            nombre: "Samsung Galaxy S26",
+            imagen: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTlB7V2Da5oO6E7fpcv3vraoqT_5FLcqCu-fSGG79fseW-h28oGH_0uT4YbIKGBYUnzDLLKVwzLYnL8BrqtFT9gL0yj35zLaQ",
             descripcion: "blabla"
         },
         {
-            nombre: "samsung j2 prime",
-            imagen: "url o direccion",
+            nombre: "iPhone 13",
+            imagen: "https://http2.mlstatic.com/D_NQ_NP_736168-MLA47781882790_102021-O.webp",
             descripcion: "blabla"
         },
         {
-            nombre: "samsung j2 prime",
-            imagen: "url o direccion",
+            nombre: "Xiaomi Redmi Note 12",
+            imagen: "https://http2.mlstatic.com/D_NQ_NP_603837-MLU72648831950_112023-O.webp",
             descripcion: "blabla"
         },
         {
-            nombre: "samsung j2 prime",
-            imagen: "url o direccion",
-            descripcion: "blabla"
-        }, {
-            nombre: "samsung j2 prime",
-            imagen: "url o direccion",
-            descripcion: "blabla"
-        }, {
-            nombre: "samsung j2 prime",
-            imagen: "url o direccion",
-            descripcion: "blabla"
-        }, {
-            nombre: "samsung j2 prime",
-            imagen: "url o direccion",
-            descripcion: "blabla"
-        }, {
-            nombre: "samsung j2 prime",
-            imagen: "url o direccion",
+            nombre: "Samsung Galaxy S26",
+            imagen: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTlB7V2Da5oO6E7fpcv3vraoqT_5FLcqCu-fSGG79fseW-h28oGH_0uT4YbIKGBYUnzDLLKVwzLYnL8BrqtFT9gL0yj35zLaQ",
             descripcion: "blabla"
         },
         {
-            nombre: "samsung j2 prime",
-            imagen: "url o direccion",
+            nombre: "Samsung J2 Prime",
+            imagen: "https://www.bhphotovideo.com/cdn-cgi/image/fit=scale-down,width=500,quality=95/https://www.bhphotovideo.com/images/images500x500/samsung_sm_g532m_16_gld_samaung_j2_prime_g532m_1520953541_1395830.jpg",
             descripcion: "blabla"
         },
         {
-            nombre: "samsung j2 prime",
-            imagen: "url o direccion",
+            nombre: "Samsung Galaxy A07",
+            imagen: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQXvDGtaJ-8Kl1gRbowFx-JlefzdXqnvLS0qUFSkb5nhynb5mvaOcPYkzQMqmvEssnTX8toSkZ-21dcU1_cY8Y_tIwJ0MShvfqaZyXCaIlGfwSNs5RQPrHqbAo",
             descripcion: "blabla"
-        }, {
-            nombre: "samsung j2 prime",
-            imagen: "url o direccion",
-            descripcion: "blabla"
-        }, {
-            nombre: "samsung j2 prime",
-            imagen: "url o direccion",
-            descripcion: "blabla"
-        }, {
-            nombre: "samsung j2 prime",
-            imagen: "url o direccion",
-            descripcion: "blabla"
-        }, {
-            nombre: "samsung j2 prime",
-            imagen: "url o direccion",
-            descripcion: "blabla"
-        }, {
-            nombre: "samsung j2 prime",
-            imagen: "url o direccion",
-            descripcion: "blabla"
-        },{
-            nombre: "samsung j2 prime",
-            imagen: "url o direccion",
+        },
+        {
+            nombre: "Samsung Galaxy S26",
+            imagen: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTlB7V2Da5oO6E7fpcv3vraoqT_5FLcqCu-fSGG79fseW-h28oGH_0uT4YbIKGBYUnzDLLKVwzLYnL8BrqtFT9gL0yj35zLaQ",
             descripcion: "blabla"
         },
     ]
@@ -95,13 +60,13 @@ function ListaProductos() {
     // no me preocupo por paginar dentro de productos.
     const productosPorPagina = 5
 
-    const totalPaginas = productos.length / productosPorPagina
+    const totalPaginas = Math.ceil(productos.length / productosPorPagina)
     const inicio = paginaActual * productosPorPagina
     const productosVisibles = productos.slice(inicio, inicio + productosPorPagina)
 
     const productosMostrados = []
     for (let i = 0; i < productosVisibles.length; i++) {
-        productosMostrados.push(<ProductoCard />)
+        productosMostrados.push(<ProductoCard nombre={productos[i].nombre} imagen={productos[i].imagen} />)
     }
 
     const paginaSiguiente = (e) => {
