@@ -7,9 +7,21 @@ function ListaProductos() {
     let productos = {
         // nombre del celu
         "samsung j2 prime": {
-            imagen: "https://http2.mlstatic.com/D_NQ_NP_662421-MLA31003080204_062019-O.webp",
+            nombre: "Samsung J2 Prime",
+            imagen: "https://www.bhphotovideo.com/cdn-cgi/image/fit=scale-down,width=500,quality=95/https://www.bhphotovideo.com/images/images500x500/samsung_sm_g532m_16_gld_samaung_j2_prime_g532m_1520953541_1395830.jpg",
+            descripcion: "blabla"
+        },
+        "samsung galaxy a07": {
+            nombre: "Samsung galaxy A07",
+            imagen: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQXvDGtaJ-8Kl1gRbowFx-JlefzdXqnvLS0qUFSkb5nhynb5mvaOcPYkzQMqmvEssnTX8toSkZ-21dcU1_cY8Y_tIwJ0MShvfqaZyXCaIlGfwSNs5RQPrHqbAo",
+            descripcion: "blabla"
+        },
+        "samsung galaxy s26": {
+            nombre: "Samsung galaxy S26",
+            imagen: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTlB7V2Da5oO6E7fpcv3vraoqT_5FLcqCu-fSGG79fseW-h28oGH_0uT4YbIKGBYUnzDLLKVwzLYnL8BrqtFT9gL0yj35zLaQ",
             descripcion: "blabla"
         }
+
     }
 
     return (
@@ -22,19 +34,17 @@ function ListaProductos() {
                 overflowX: "hidden",
                 paddingTop: "4px"
             }}>
-                <ProductoCard 
-                    nombre="Samsung J2 Prime"
-                    imagen="https://http2.mlstatic.com/D_NQ_NP_900662-MLA44670054215_012021-O.webp"
+                <ProductoCard
+                nombre={productos["samsung j2 prime"].nombre}
+                imagen={productos["samsung j2 prime"].imagen}
                 />
-                
-                <ProductoCard 
-                    nombre="iPhone 13"
-                    imagen="https://http2.mlstatic.com/D_NQ_NP_736168-MLA47781882790_102021-O.webp"
+                <ProductoCard
+                nombre={productos["samsung galaxy a07"].nombre}
+                imagen={productos["samsung galaxy a07"].imagen}
                 />
-                
-                <ProductoCard 
-                    nombre="Xiaomi Redmi Note 12"
-                    imagen="https://http2.mlstatic.com/D_NQ_NP_603837-MLU72648831950_112023-O.webp"
+                <ProductoCard
+                nombre={productos["samsung galaxy s26"].nombre}
+                imagen={productos["samsung galaxy s26"].imagen}
                 />
             </div>
             <nav style={{
