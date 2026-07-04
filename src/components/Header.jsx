@@ -6,8 +6,13 @@ function Header() {
             alignItems: "center",
             padding: "10px 20px",
         }}>
-            <div>
-                [IMAGEN]
+            <div style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px"
+            }}>
+                <img src="https://images.icon-icons.com/1725/PNG/512/4014657-buy-cell-online-phone-store_112888.png" alt="logo" style={{ width: "50px", height: "50px" }} />
+                <h1>Tienda de Smartphones</h1>
             </div>
             <nav style={{
                 display: "flex",
