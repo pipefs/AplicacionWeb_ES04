@@ -6,7 +6,7 @@ import ListaProductos from "./components/ListaProductos.jsx"
 import DetalleProducto from "./components/DetalleProducto.jsx"
 
 function App() {
-  const [ultimoProducto, setUltimoProducto] = useState(localStorage.getItem("ultimoProducto"))
+  const [ultimoProducto, setUltimoProducto] = useState(JSON.parse(localStorage.getItem("ultimoProducto")))
 
   return (
     <div style={{
