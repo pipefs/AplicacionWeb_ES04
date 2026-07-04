@@ -1,8 +1,13 @@
+import { useState } from "react"
+
 import Header from "./components/Header.jsx"
 import Footer from "./components/Footer.jsx"
 import ListaProductos from "./components/ListaProductos.jsx"
+import DetalleProducto from "./components/DetalleProducto.jsx"
 
 function App() {
+  const [ultimoProducto, setUltimoProducto] = useState(localStorage.getItem("ultimoProducto"))
+
   return (
     <div style={{
       display: "flex",
@@ -14,7 +19,9 @@ function App() {
         flex: "1 0 100vh",
         padding: "20px"
       }}>
-        <ListaProductos />
+        <ListaProductos setUltimoProducto={setUltimoProducto} />
+        <hr />
+        <DetalleProducto producto={ultimoProducto} />
       </main>
 
       <Footer />

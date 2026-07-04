@@ -1,73 +1,78 @@
 import { useState } from "react"
 import ProductoCard from "./ProductoCard.jsx"
 
-function ListaProductos() {
+const productos = [
+    {
+        nombre: "Samsung J2 Prime",
+        imagen: "https://www.bhphotovideo.com/cdn-cgi/image/fit=scale-down,width=500,quality=95/https://www.bhphotovideo.com/images/images500x500/samsung_sm_g532m_16_gld_samaung_j2_prime_g532m_1520953541_1395830.jpg",
+        descripcion: "blabla"
+    },
+    {
+        nombre: "Samsung Galaxy A07",
+        imagen: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQXvDGtaJ-8Kl1gRbowFx-JlefzdXqnvLS0qUFSkb5nhynb5mvaOcPYkzQMqmvEssnTX8toSkZ-21dcU1_cY8Y_tIwJ0MShvfqaZyXCaIlGfwSNs5RQPrHqbAo",
+        descripcion: "blabla"
+    },
+    {
+        nombre: "Samsung Galaxy S26",
+        imagen: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTlB7V2Da5oO6E7fpcv3vraoqT_5FLcqCu-fSGG79fseW-h28oGH_0uT4YbIKGBYUnzDLLKVwzLYnL8BrqtFT9gL0yj35zLaQ",
+        descripcion: "blabla"
+    },
+    {
+        nombre: "iPhone 13",
+        imagen: "https://http2.mlstatic.com/D_NQ_NP_736168-MLA47781882790_102021-O.webp",
+        descripcion: "blabla"
+    },
+    {
+        nombre: "Xiaomi Redmi Note 12",
+        imagen: "https://http2.mlstatic.com/D_NQ_NP_603837-MLU72648831950_112023-O.webp",
+        descripcion: "blabla"
+    },
+    {
+        nombre: "Samsung Galaxy S26",
+        imagen: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTlB7V2Da5oO6E7fpcv3vraoqT_5FLcqCu-fSGG79fseW-h28oGH_0uT4YbIKGBYUnzDLLKVwzLYnL8BrqtFT9gL0yj35zLaQ",
+        descripcion: "blabla"
+    },
+    {
+        nombre: "Samsung J2 Prime",
+        imagen: "https://www.bhphotovideo.com/cdn-cgi/image/fit=scale-down,width=500,quality=95/https://www.bhphotovideo.com/images/images500x500/samsung_sm_g532m_16_gld_samaung_j2_prime_g532m_1520953541_1395830.jpg",
+        descripcion: "blabla"
+    },
+    {
+        nombre: "Samsung Galaxy A07",
+        imagen: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQXvDGtaJ-8Kl1gRbowFx-JlefzdXqnvLS0qUFSkb5nhynb5mvaOcPYkzQMqmvEssnTX8toSkZ-21dcU1_cY8Y_tIwJ0MShvfqaZyXCaIlGfwSNs5RQPrHqbAo",
+        descripcion: "blabla"
+    },
+    {
+        nombre: "Samsung Galaxy S26",
+        imagen: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTlB7V2Da5oO6E7fpcv3vraoqT_5FLcqCu-fSGG79fseW-h28oGH_0uT4YbIKGBYUnzDLLKVwzLYnL8BrqtFT9gL0yj35zLaQ",
+        descripcion: "blabla"
+    },
+]
+
+function ListaProductos({ setUltimoProducto }) {
     const [paginaActual, setPaginaActual] = useState(0)
 
-    // "base de datos" de los productos.
-    // Aqui se agregaran para que sea posible implementar la "pagination".
-        
-    let productos = [
-        {
-            nombre: "Samsung J2 Prime",
-            imagen: "https://www.bhphotovideo.com/cdn-cgi/image/fit=scale-down,width=500,quality=95/https://www.bhphotovideo.com/images/images500x500/samsung_sm_g532m_16_gld_samaung_j2_prime_g532m_1520953541_1395830.jpg",
-            descripcion: "blabla"
-        },
-        {
-            nombre: "Samsung Galaxy A07",
-            imagen: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQXvDGtaJ-8Kl1gRbowFx-JlefzdXqnvLS0qUFSkb5nhynb5mvaOcPYkzQMqmvEssnTX8toSkZ-21dcU1_cY8Y_tIwJ0MShvfqaZyXCaIlGfwSNs5RQPrHqbAo",
-            descripcion: "blabla"
-        },
-        {
-            nombre: "Samsung Galaxy S26",
-            imagen: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTlB7V2Da5oO6E7fpcv3vraoqT_5FLcqCu-fSGG79fseW-h28oGH_0uT4YbIKGBYUnzDLLKVwzLYnL8BrqtFT9gL0yj35zLaQ",
-            descripcion: "blabla"
-        },
-        {
-            nombre: "iPhone 13",
-            imagen: "https://http2.mlstatic.com/D_NQ_NP_736168-MLA47781882790_102021-O.webp",
-            descripcion: "blabla"
-        },
-        {
-            nombre: "Xiaomi Redmi Note 12",
-            imagen: "https://http2.mlstatic.com/D_NQ_NP_603837-MLU72648831950_112023-O.webp",
-            descripcion: "blabla"
-        },
-        {
-            nombre: "Samsung Galaxy S26",
-            imagen: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTlB7V2Da5oO6E7fpcv3vraoqT_5FLcqCu-fSGG79fseW-h28oGH_0uT4YbIKGBYUnzDLLKVwzLYnL8BrqtFT9gL0yj35zLaQ",
-            descripcion: "blabla"
-        },
-        {
-            nombre: "Samsung J2 Prime",
-            imagen: "https://www.bhphotovideo.com/cdn-cgi/image/fit=scale-down,width=500,quality=95/https://www.bhphotovideo.com/images/images500x500/samsung_sm_g532m_16_gld_samaung_j2_prime_g532m_1520953541_1395830.jpg",
-            descripcion: "blabla"
-        },
-        {
-            nombre: "Samsung Galaxy A07",
-            imagen: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQXvDGtaJ-8Kl1gRbowFx-JlefzdXqnvLS0qUFSkb5nhynb5mvaOcPYkzQMqmvEssnTX8toSkZ-21dcU1_cY8Y_tIwJ0MShvfqaZyXCaIlGfwSNs5RQPrHqbAo",
-            descripcion: "blabla"
-        },
-        {
-            nombre: "Samsung Galaxy S26",
-            imagen: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTlB7V2Da5oO6E7fpcv3vraoqT_5FLcqCu-fSGG79fseW-h28oGH_0uT4YbIKGBYUnzDLLKVwzLYnL8BrqtFT9gL0yj35zLaQ",
-            descripcion: "blabla"
-        },
-    ]
-
-    // ! esto no se actualiza cada frame.
-
-    // sistema un poquito mas complicado pero asi
-    // no me preocupo por paginar dentro de productos.
+    // paginación
     const productosPorPagina = 5
-
     const totalPaginas = Math.ceil(productos.length / productosPorPagina)
     const inicio = paginaActual * productosPorPagina
     const productosVisibles = productos.slice(inicio, inicio + productosPorPagina)
 
     const productosMostrados = []
     for (let i = 0; i < productosVisibles.length; i++) {
-        productosMostrados.push(<ProductoCard nombre={productosVisibles[i].nombre} imagen={productosVisibles[i].imagen} />)
+        productosMostrados.push(<ProductoCard key={i} nombre={productosVisibles[i].nombre} imagen={productosVisibles[i].imagen} masInformacion={() => {
+            const producto = {
+                imagen: productosVisibles[i].imagen,
+                nombre: productosVisibles[i].nombre,
+                descripcion: productosVisibles[i].descripcion,
+            }
+
+            // actualizamos
+            setUltimoProducto(producto)
+
+            // guardamos
+            localStorage.setItem("ultimoProducto", JSON.stringify(producto))
+        }} />)
     }
 
     const paginaSiguiente = (e) => {
@@ -82,7 +87,6 @@ function ListaProductos() {
         if (paginaActual > 0) {
             setPaginaActual(paginaActual - 1)
         }
-
     }
 
     return (
