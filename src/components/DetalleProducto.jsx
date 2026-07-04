@@ -10,6 +10,14 @@ function DetalleProducto({ producto }) {
                 <h2>{producto.nombre}</h2>
                 <h3>Precio: {producto.precio}</h3>
                 <p>{producto.descripcion}</p>
+                <h4>Especificaciones:</h4>
+                <ul>
+                    {/*El signo de interrogación evita errores si alguna propiedad no existe */}
+                    <li>RAM: {producto?.especificaciones?.ram}</li>
+                    <li>Almacenamiento: {producto?.especificaciones?.almacenamiento}</li>
+                    <li>Batería: {producto?.especificaciones?.bateria}</li>
+                    <li>Cámara: {producto?.especificaciones?.camara}</li>
+                </ul>
             </div>
         </div>
     )
